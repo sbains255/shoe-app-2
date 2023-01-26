@@ -1,0 +1,21 @@
+<SignCustomerPage>:
+    BoxLayout:
+        padding:"50dp"
+        spacing:'50sp'
+        orientation:'vertical'
+        Label:
+            text:'Enter your email'
+        TextInput:
+            id:customer_id
+        Label:
+            text:'Enter customer password'
+        TextInput:
+            id:customer_password
+            password:True
+        Button:
+            text:'Do not have an account yet! Sign Up'
+            on_release:app.root.current='main'
+        Button:
+            text:'Sign In'
+            on_release:root.sign_in(customer_id.text, customer_password.text)
+

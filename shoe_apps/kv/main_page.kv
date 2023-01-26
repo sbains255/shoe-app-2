@@ -1,0 +1,15 @@
+<MainPage>:
+    BoxLayout:
+        orientation:'vertical'
+        Button:
+            text: "Customer Log In"
+            on_release:
+                app.root.current = "customer sing in"
+        Button:
+            text: "Customer Sign Up"
+            on_release:
+                app.root.current = "customer sign up"
+        Button:
+            text: "Seller Login"
+            on_release:
+                app.root.current = "admin sign in"

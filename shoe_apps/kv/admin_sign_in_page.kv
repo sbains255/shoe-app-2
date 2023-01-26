@@ -1,0 +1,18 @@
+<AdminSignInPage>:
+    BoxLayout:
+        padding:"50dp"
+        spacing:'50sp'
+        orientation:'vertical'
+        Label:
+            text:'Enter Seller user name'
+        TextInput:
+            id:admin_user_name
+        Label:
+            text:'Enter Seller password'
+        TextInput:
+            id:admin_password
+            password:True
+        Button:
+            text:'Sign In'
+            on_release:root.sign_in(admin_user_name.text, admin_password.text)
+

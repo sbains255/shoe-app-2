@@ -1,0 +1,110 @@
+<AddProductDialog>
+    title:'Fill products details'
+    size_hint:(.8, .9)
+    ScrollView:
+        BoxLayout:
+            orientation:'vertical'
+            size_hint_y:None
+            height:'550dp'
+            padding:'30dp'
+            spacing:'30dp'
+            Label:
+                text:'type shoes name'
+            TextInput:
+                hint_text:'product name'
+                on_text:root.product_name=self.text
+                multiline: False
+            Label:
+                text:'type shoes size'
+            TextInput:
+                input_type: 'number'
+                hint_text:'product size'
+                input_filter: 'float'
+                on_text:root.product_size=self.text
+                multiline: False
+            Label:
+                text:'input shoes image'
+            BoxLayout:
+                TextInput:
+                    hint_text:'image path'
+                    multiline: False
+                    text:root.product_image
+                    on_text:root.product_image=self.text
+                Button:
+                    size_hint_x:.3
+                    text:'browse'
+                    on_release:root.pick_image()
+
+            Button:
+                size_hint_y:None
+                height:'50dp'
+                text:'add'
+                on_release:root.add_to_database()
+
+
+<AdminPage>:
+    BoxLayout:
+        orientation:'vertical'
+        BoxLayout:
+            height:'80dp'
+            size_hint_y:None
+
+            Label:
+                text:'Seller Dashboard'
+            Button:
+                text:'Add Product'
+                on_release:root.open_add_product_pop_up()
+            Button:
+                text:'Back to main page'
+                on_release:app.root.current='main'
+        TabbedPanel:
+            do_default_tab: False
+            tab_pos : 'top_mid'
+            TabbedPanelItem:
+                text: 'Clients Orders'
+                BoxLayout:
+                    orientation:'vertical'
+                    BoxLayout:
+                        size_hint_y: None
+                        height:'70dp'
+                        padding:'30dp'
+                        Label:
+                            text:'shoes image'
+
+                        Label:
+                            text:'shoes name'
+                        Label:
+                            text:'shoes size'
+                        Label:
+                            text:'Shoe count'
+                        Label:
+                            text:'User Id'
+                    ScrollView:
+                        BoxLayout:
+                            orientation:'vertical'
+                            padding:'30dp'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            id:customer_cart
+            TabbedPanelItem:
+                text: 'Products'
+                BoxLayout:
+                    orientation:'vertical'
+                    BoxLayout:
+                        size_hint_y: None
+                        height:'70dp'
+                        Label:
+                            text:'shoes image'
+
+                        Label:
+                            text:'shoes name'
+                        Label:
+                            text:'shoes size'
+
+                    ScrollView:
+                        BoxLayout:
+                            orientation:'vertical'
+                            padding:'30dp'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            id:products_page

@@ -1,0 +1,106 @@
+
+<SuggestionDialog>
+    title:'Shoes Suggested for you'
+    size_hint:(.8, .9)
+    ScrollView:
+        BoxLayout:
+            orientation:'vertical'
+            padding:'30dp'
+            size_hint_y: None
+            height: self.minimum_height
+            spacing:'30dp'
+            id:main_box
+            BoxLayout:
+                size_hint_y: None
+                height:'70dp'
+                padding:'30dp'
+                Label:
+                    text:'shoes image'
+                Label:
+                    text:'shoes name'
+                Label:
+                    text:'shoes size'
+
+
+<DashBoardPage>:
+    BoxLayout:
+        orientation:'vertical'
+        BoxLayout:
+            height:'80dp'
+            size_hint_y:None
+
+            Label:
+                text:'Dashboard Page'
+            Button:
+                text:'Back to main page'
+                on_release:app.root.current='main'
+        TabbedPanel:
+            do_default_tab: False
+            tab_pos : 'top_mid'
+            pos_hint: {'center_x': .5, }
+            TabbedPanelItem:
+                text: 'Products'
+                BoxLayout:
+                    orientation:'vertical'
+                    BoxLayout:
+                        size_hint_y: None
+                        height:'70dp'
+                        padding:'30dp'
+
+                        Label:
+                            text:'Image'
+                        Label:
+                            text:'Name'
+                        Label:
+                            text:'Size'
+                        Label:
+                            text:'Add to cart'
+                    ScrollView:
+                        BoxLayout:
+                            orientation:'vertical'
+                            padding:'30dp'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            id:products_page
+            TabbedPanelItem:
+                text: 'My Cart'
+                BoxLayout:
+                    orientation:'vertical'
+                    BoxLayout:
+                        size_hint_y: None
+                        height:'70dp'
+                        padding:'30dp'
+                        Label:
+                            text:'Image'
+
+                        Label:
+                            text:'Name'
+                        Label:
+                            text:'Size'
+                        Label:
+                            text:'Amount'
+                        Label:
+                            text:'remove'
+                    ScrollView:
+                        BoxLayout:
+                            orientation:'vertical'
+                            padding:'30dp'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            id:customer_cart
+        BoxLayout:
+            height:'80dp'
+            size_hint_y:None
+
+            Label:
+                text:'Type your size'
+            TextInput:
+                input_type: 'number'
+                hint_text:'Shoe size'
+                input_filter: 'float'
+                id:customer_size_holder
+                multiline: False
+            Button:
+                text:'Suggest shoes for me'
+
+                on_release:root.suggest_shoes(customer_size_holder.text)
